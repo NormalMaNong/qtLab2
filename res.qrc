@@ -25,5 +25,6 @@
         <file>image/Showline.png</file>
         <file>image/stateBox.png</file>
         <file>image/toolBox.png</file>
+        <file>image/notePad.png</file>
     </qresource>
 </RCC>
