@@ -65,7 +65,7 @@ void MainWindow::on_actionFind_triggered()
 
 void MainWindow::on_actionReplace_triggered()
 {
-    RepalceDialog dlg;
+    RepalceDialog dlg(this,ui->textEdit);
     dlg.exec();
 }
 
