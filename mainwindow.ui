@@ -394,6 +394,9 @@
    </property>
   </action>
   <action name="actionLineWrap">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/image/autoLine.png</normaloff>:/image/autoLine.png</iconset>
@@ -409,6 +412,9 @@
    </property>
   </action>
   <action name="actionToolBox">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/image/toolBox.png</normaloff>:/image/toolBox.png</iconset>
@@ -424,6 +430,9 @@
    </property>
   </action>
   <action name="actionStatus">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
    <property name="icon">
     <iconset resource="res.qrc">
      <normaloff>:/image/stateBox.png</normaloff>:/image/stateBox.png</iconset>

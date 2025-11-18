@@ -6,6 +6,9 @@
 #include <QFileDialog>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QColorDialog>
+#include <QFontDialog>
+#include <QPalette>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -33,6 +36,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->actionPaste->setEnabled(false);
     ui->actionRedo->setEnabled(false);
     ui->actionUndo->setEnabled(false);
+
+    on_actionLineWrap_triggered();
 }
 
 MainWindow::~MainWindow()
@@ -233,5 +238,56 @@ void MainWindow::on_textEdit_redoAvailable(bool b)
 void MainWindow::on_textEdit_undoAvailable(bool b)
 {
     ui->actionUndo->setEnabled(b);
+}
+
+
+void MainWindow::on_actionFontColor_triggered()
+{
+    QColor color = QColorDialog::getColor(Qt::black,this,"选择颜色");
+    if(color.isValid()){
+        QPalette palette = ui->textEdit->palette();
+        palette.setColor(QPalette::Text,color);
+        ui->textEdit->setPalette(palette);
+    }
+}
+
+
+void MainWindow::on_actionFontBackgroundColor_triggered()
+{
+
+}
+
+
+void MainWindow::on_actionEditorBackgroudColor_triggered()
+{
+    QColor color = QColorDialog::getColor(Qt::black,this,"选择颜色");
+    if(color.isValid()){
+        QPalette palette = ui->textEdit->palette();
+        palette.setColor(QPalette::Base,color);
+        ui->textEdit->setPalette(palette);
+    }
+}
+
+
+void MainWindow::on_actionLineWrap_triggered()
+{
+    QPlainTextEdit::LineWrapMode mode = ui->textEdit->lineWrapMode();
+
+    if(mode == QTextEdit::NoWrap){
+        ui->textEdit->setLineWrapMode(QPlainTextEdit::WidgetWidth);
+        ui->actionLineWrap->setChecked(true);
+    }else{
+        ui->textEdit->setLineWrapMode(QPlainTextEdit::NoWrap);
+        ui->actionLineWrap->setChecked(false);
+    }
+}
+
+
+void MainWindow::on_actionFontSize_triggered()
+{
+    bool ok = false;
+    QFont font = QFontDialog::getFont(&ok,this);
+    if(ok)
+        ui->textEdit->setFont(font);
 }
 
